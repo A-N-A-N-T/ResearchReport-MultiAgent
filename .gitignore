@@ -1,0 +1,7 @@
+myenv/
+__pycache__/
+.env
+reports/
+*.db
+*.sqlite3
+.vscode/
