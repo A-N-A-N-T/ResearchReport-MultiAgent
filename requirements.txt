@@ -4,10 +4,6 @@ langchain-core>=0.2.0
 langchain-community>=0.2.0
 langchain-openai>=0.1.0
 streamlit>=1.36.0
-langchain-huggingface>=0.1.0
-sentence-transformers>=3.0.0
-langchain-text-splitters>=0.3.0
-
 
 #reportlab for pdf generator
 reportlab>=4.0.0
@@ -57,5 +53,4 @@ pydantic>=2.5.0
 # Optional (for advanced parsing / HTML cleanup)
 html5lib>=1.1
 
-faiss-cpu>=1.8.0
 numpy>=1.26.4
