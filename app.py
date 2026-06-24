@@ -415,27 +415,17 @@ if state:
     st.divider()
 
     st.subheader("💬 Chat with Research Report")
+    st.info("RAG-based chat is disabled for deployment to reduce memory usage.")
 
-    question = st.text_input(
-    "Ask anything about this report"
-    )
-
-    if st.button("Ask"):
-
-       if "retriever" not in state:
-
-        st.warning("Generate a report first.")
-
-       else:
-
-         from ragConcepts.rag_pipeline import QuestionAnswer
-
-         answer = QuestionAnswer(
-            question,
-            state["retriever"]
-         )
-
-         st.success(answer)
+    # RAG chat is intentionally disabled for lightweight deployment.
+    # question = st.text_input("Ask anything about this report")
+    # if st.button("Ask"):
+    #     if "retriever" not in state:
+    #         st.warning("Generate a report first.")
+    #     else:
+    #         from ragConcepts.rag_pipeline import QuestionAnswer
+    #         answer = QuestionAnswer(question, state["retriever"])
+    #         st.success(answer)
 else:
     st.markdown(
         """
