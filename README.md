@@ -1,8 +1,8 @@
 # 🚀 Multi-Agent AI Research Platform
 
-An intelligent AI-powered research assistant built using **LangChain**, **Streamlit**, and multiple Large Language Models (**Mistral, Gemini, and OpenAI**).
+An intelligent AI-powered research assistant built with **LangChain**, **Streamlit**, and **Mistral AI**.
 
-The platform uses a multi-agent architecture to autonomously research topics, gather information from the web, generate detailed reports, compare topics, evaluate report quality, chat with generated reports using Retrieval-Augmented Generation (RAG), and export results as PDF documents.
+The platform uses a multi-agent workflow to research topics, gather information from the web, generate detailed reports, compare two topics, review report quality, store research history, and export results as PDF documents.
 
 ---
 
@@ -21,12 +21,10 @@ The platform uses a multi-agent architecture to autonomously research topics, ga
 * BeautifulSoup Web Scraping
 * Real-time information gathering
 
-### 📚 Retrieval-Augmented Generation (RAG)
+### 🧩 Lightweight Deployment Mode
 
-* FAISS Vector Store
-* Document Chunking
-* Embedding-Based Retrieval
-* Conversational Q&A with Generated Reports
+* RAG chat is intentionally disabled for memory-efficient deployment
+* The app focuses on research generation, comparison, history, and PDF export
 
 ### ⚖️ Topic Comparison
 
@@ -35,17 +33,16 @@ The platform uses a multi-agent architecture to autonomously research topics, ga
 * Similarities and differences analysis
 * Comparative recommendations
 
-### 🧠 Multi-LLM Support
+### 🧠 Model Support
 
 * Mistral AI
-* Google Gemini
-* OpenAI
+* Gemini (optional)
+* OpenAI (optional)
 
 ### 📄 Report Export
 
 * Professional PDF Generation
 * Download Research Reports
-* Download Comparison Reports
 
 ### 💾 Research History
 
@@ -57,9 +54,9 @@ The platform uses a multi-agent architecture to autonomously research topics, ga
 ### 🎨 Interactive UI
 
 * Streamlit Frontend
-* Research Mode
-* Comparison Mode
-* Dashboard View
+* Research workflow panel
+* Topic comparison panel
+* Research history sidebar
 
 ---
 
@@ -84,17 +81,16 @@ F --> J[Research Report]
 
 J --> K[PDF Export]
 J --> L[SQLite Database]
-J --> M[RAG Chat]
 
-B --> N[Comparison Mode]
+B --> M[Comparison Panel]
 
-N --> O[Topic A Report]
-N --> P[Topic B Report]
+M --> N[Topic A Report]
+M --> O[Topic B Report]
 
-O --> Q[Comparison Chain]
-P --> Q
+N --> P[Comparison Chain]
+O --> P
 
-Q --> R[Comparison Report]
+P --> Q[Comparison Report]
 ```
 
 ---
@@ -109,8 +105,7 @@ Q --> R[Comparison Report]
 4. Writer Agent creates a structured report
 5. Critic Agent evaluates report quality
 6. Report is stored in SQLite
-7. PDF is generated
-8. Report is indexed for RAG chat
+7. PDF is generated for download
 
 ### Comparison Mode
 
@@ -127,15 +122,9 @@ Q --> R[Comparison Report]
 ### AI & GenAI
 
 * LangChain
-* LangGraph
 * Mistral AI
-* Google Gemini
-* OpenAI
-
-### Retrieval-Augmented Generation
-
-* FAISS
-* HuggingFace Embeddings
+* Gemini (optional)
+* OpenAI (optional)
 
 ### Search & Scraping
 
@@ -203,12 +192,14 @@ Create a `.env` file in the root directory.
 
 ```env
 MISTRAL_API_KEY=your_mistral_api_key
-
-GOOGLE_API_KEY=your_google_api_key
-
-OPENAI_API_KEY=your_openai_api_key
-
 TAVILY_API_KEY=your_tavily_api_key
+```
+
+Optional keys if you want to enable other providers:
+
+```env
+GOOGLE_API_KEY=your_google_api_key
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 ### Run Application
@@ -229,10 +220,6 @@ streamlit run app.py
 
 *Add screenshot here*
 
-### RAG Chat
-
-*Add screenshot here*
-
 ### Research History
 
 *Add screenshot here*
@@ -243,7 +230,6 @@ streamlit run app.py
 
 * DOCX Export
 * Research Analytics Dashboard
-* LangSmith Integration
 * Citation Generation (APA / IEEE / MLA)
 * Research Mind Maps
 * Cloud Deployment
@@ -257,10 +243,17 @@ ResearchReport_AI_AGENT/
 
 ├── database/
 ├── llms/
-├── ragConcepts/
 ├── utils/
-
 ├── agents.py
+├── agentTools.py
+├── app.py
+├── comparision.py
+├── comparisionChain.py
+├── comparisionPrompt.py
+├── final_pipeline.py
+├── requirements.txt
+└── test.py
+```
 ├── agentTools.py
 ├── app.py
 ├── comparison.py
