@@ -1,8 +1,8 @@
 from agents import search_agent , reader_agent , writer_chain , critic_chain
 from utils.pdfGenerator import generate_pdf
-from ragConcepts.reportChunking import split_report
-from ragConcepts.vectorStore import create_vectorStore 
-from ragConcepts.retriver import get_retriever
+# from ragConcepts.reportChunking import split_report
+# from ragConcepts.vectorStore import create_vectorStore 
+# from ragConcepts.retriver import get_retriever
 
 
 
@@ -74,18 +74,18 @@ def run_research_pipeline(topic : str) -> dict:
 
     #################### Rag Implementation ############## 
      
-    # Step 1 - Creating chunks
+    # # Step 1 - Creating chunks
     
-    chunks = split_report(state["report"])
+    # chunks = split_report(state["report"])
 
-    # step 2 - creating embedding and storing chunks into the vectorDB
+    # # step 2 - creating embedding and storing chunks into the vectorDB
 
-    vecStore = create_vectorStore(chunks)
-    state["vectorStore"] = vecStore
+    # vecStore = create_vectorStore(chunks)
+    # state["vectorStore"] = vecStore
 
-    # step 3 - creating Retreiver 
-    retriever = get_retriever(vecStore)
-    state["retriever"] = retriever
+    # # step 3 - creating Retreiver 
+    # retriever = get_retriever(vecStore)
+    # state["retriever"] = retriever
 
     
     
