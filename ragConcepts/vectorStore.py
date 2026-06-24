@@ -1,5 +1,6 @@
 from langchain_community.vectorstores import FAISS
 from ragConcepts.embeddingModel import embedding_model
+from ragConcepts.embeddingModel import get_embedding_model
 
 def create_vectorStore(chunks):
     """
@@ -8,7 +9,7 @@ def create_vectorStore(chunks):
 
     vector_store = FAISS.from_documents(
         documents = chunks,
-        embedding=embedding_model
+        embedding=get_embedding_model()
     )
 
     return vector_store
